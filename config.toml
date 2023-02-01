@@ -16,17 +16,25 @@ posts = "/posts/:year/:month/:day/:slug/"
     url = "/"
     weight = 1
 [[menu.en]]
-    name = "About"
+    name = "Vitae"
     url = "/en/about/"
     weight = 2
 [[menu.en]]
+    name = "Publications"
+    url = "/en/publications/"
+    weight = 3 
+[[menu.en]]
     name = "Posts"
     url = "/en/posts/"
-    weight = 3
+    weight = 4
+[[menu.en]]
+    name = "Photography"
+    url = "/en/photograph"
+    weight = 5
 [[menu.en]]
     name = "中文"
     url = "/cn/posts/"
-    weight = 4
+    weight = 6
 [[menu.cn]]
     name = "关于"
     url = "/cn/about/"
@@ -49,7 +57,7 @@ posts = "/posts/:year/:month/:day/:slug/"
     defaultLang = "en"
     MathJaxCDN = "//cdnjs.cloudflare.com/ajax/libs" 
     MathJaxVersion = "2.7.5"
-    favicon = "media/hugo-logo.png"
+    favicon = "image/cxy.png"
     # Edit by yourself:
     GithubEdit = "https://github.com/Sleepydui/Sleepydui.github.io/edit/master/content/"
     copyright = "&copy;"
