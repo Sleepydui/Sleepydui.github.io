@@ -2,7 +2,7 @@
 title: Home
 ---
 
-{{<figure src="/image/zhaopian.jpeg"  caption="Abu Dhabi. Photo in December 2019. ">}}
+{{<figure src="/image/zhaopian.jpeg"  caption="University of California, Berkeley. Photo in Summer 2017. ">}}
 
 Nice to meeet you! This is Xinyue Chen, PhD student from Visualization and Visual Analytics Group, School of Artificial Intelligence, Peking University. 
 
