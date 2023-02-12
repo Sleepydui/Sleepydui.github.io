@@ -21,7 +21,7 @@ posts = "/posts/:year/:month/:day/:slug/"
     weight = 2
 [[menu.en]]
     name = "Publications"
-    url = "/en/publications/"
+    url = "/cn/publications/"
     weight = 3 
 [[menu.en]]
     name = "Posts"
@@ -29,12 +29,20 @@ posts = "/posts/:year/:month/:day/:slug/"
     weight = 4
 [[menu.en]]
     name = "Photography"
-    url = "/en/photograph"
+    url = "/cn/photograph"
     weight = 5
+[[menu.en]]
+    name = "APAD"
+    url = "/cn/APAD"
+    weight = 6
+[[menu.en]]
+    name = "VIS365"
+    url = "/cn/VIS365"
+    weight = 7
 [[menu.en]]
     name = "中文"
     url = "/cn/posts/"
-    weight = 6
+    weight = 8
 [[menu.cn]]
     name = "关于"
     url = "/cn/about/"
@@ -61,7 +69,7 @@ posts = "/posts/:year/:month/:day/:slug/"
     # Edit by yourself:
     GithubEdit = "https://github.com/Sleepydui/Sleepydui.github.io/edit/master/content/"
     copyright = "&copy;"
-    copyrightYear = "2020-2021"
+    copyrightYear = "2023-∞"
     # Edit by yourself:
     GithubRepo = "https://github.com/Sleepydui/Sleepydui.github.io"
     # Edit by yourself:
@@ -70,8 +78,8 @@ posts = "/posts/:year/:month/:day/:slug/"
 [params.logo]
   # Change the logo picture as your prefer:
   url = "image/cxy.png" # you can change it
-  width = 60.3
-  height = 26.8
+  width = 70
+  height = 40
   alt = "Hugo-ht"
 
 [params.lang]
