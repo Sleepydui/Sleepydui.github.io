@@ -1,9 +1,10 @@
 ---
-title: [摸鱼]尝试在博客中引入网易云音乐模块
-_build:
-  render: never
-  list: never
-  publishResources: false
+title: "[摸鱼]尝试在博客中引入网易云音乐模块"
+date: 2023-02-15T15:41:42+08:00
+author: "陈昕悦"
+slug:
+draft: false
+toc: false
 ---
 
 ## 尝试在博客中引入网易云音乐模块
