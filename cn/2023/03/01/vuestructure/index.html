@@ -1,5 +1,87 @@
 <a name=top></a><!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Xinyue-page</title><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/fonts.css><link href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/github.min.css rel=stylesheet><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/r.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/bash.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/python.min.js></script><script src=https://cdn.jsdelivr.net/npm/vega@5.17.0></script><script src=https://cdn.jsdelivr.net/npm/vega-lite@4.17.0></script><script src=https://cdn.jsdelivr.net/npm/vega-embed@6.12.2></script><script>hljs.initHighlightingOnLoad();</script><link rel=icon href=https://Sleepydui.github.io/image/cxy.png></head><body><div class=wrapper><header class=header><nav class=nav><a href=/ class=nav-logo><img src=/image/cxy.png width=70 height=40 alt=Hugo-ht></a><ul class=nav-links><li><a href=/cn/about/>关于</a></li><li><a href=/cn/posts/>日志</a></li><li><a href=/>English</a></li></ul></nav></header><main class=content role=main><div style=text-align:center><h1>Vuestructure</h1><p>dui
-/ 2023-03-01</p><hr></div><span class=article-toolbar><a href=https://github.com/Sleepydui/Sleepydui.github.io/edit/master/content/cn/posts/2023-03-01-vuestructure.md style=font-size:24px;color:#000 target=_blank><i class="fa fa-edit" aria-hidden=true title=编辑本页></i></a></span><div class="body-text list-text"><ul><li>Vue实现原理<ul><li>配</li></ul></li></ul><p style=color:#777>最后一次修改于 2023-03-01</p></div><a href=#top><i class="fa fa-chevron-up" style=font-size:30px;color:#000></i></a></main><footer class=footer><script type=text/javascript src=/js/math-code.js></script><script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script><script type=text/javascript src=/js/center-img.js></script><ul class=footer-links><li><a href=/cn/posts/index.xml type=application/rss+xml title="RSS feed">订阅</a></li><li><a href=http://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh target=_blank>版权
+/ 2023-03-01</p><hr></div><span class=article-toolbar><a href=https://github.com/Sleepydui/Sleepydui.github.io/edit/master/content/cn/posts/2023-03-01-vuestructure.md style=font-size:24px;color:#000 target=_blank><i class="fa fa-edit" aria-hidden=true title=编辑本页></i></a></span><div class="body-text list-text"><ul><li><p>Vue实现原理</p><ul><li>main.js<ul><li>是入口文件我们的项目默认访问index.html，这个文件里面<div id=app></div>和App.vue组件里面的容器完美的重合了，也就是把组件挂载到了index页面，然后我们只需要去建设其他组件就好了，在App组件中我们也可以引入，注册，应用其他组件，可以通过路由将其他组件渲染在App组件，这样我们就只需要去关注每个组件的功能完善。</li><li>就是说vue的默认页面是index.html，index中的<div id=app></div>挂载了App.vue这个大组件，然后所有的其他子组件（hello.vue等）都归属在App.vue这个主组件下。</li></ul></li></ul></li><li><p>主要文件详解</p><ul><li>App.vue——[根组件]<ul><li>一个vue页面通常由三部分组成:模板(template)、js(script)、样式(style)</li><li>【template】<ul><li>其中模板只能包含一个父节点，也就是说顶层的div只能有一个（例如上面代码，父节点为#app的div，其没有兄弟节点）</li><li><router-view></router-view>是子路由视图，后面的路由页面都显示在此处</li><li>打一个比喻吧,<router-view>类似于一个插槽，跳转某个路由时，该路由下的页面就插在这个插槽中渲染显示</li></ul></li><li>【script】<ul><li>vue通常用es6来写，用export default导出，其下面可以包含数据data，生命周期(mounted等)，方法(methods)等，具体语法请看vue.js文档。</li></ul></li><li>【style】<ul><li>样式通过style标签包裹，默认是影响全局的，如需定义作用域只在该组件下起作用，需在标签上加scoped.</li><li><style scoped></style></li></ul></li></ul></li><li>main.js——[入口文件]<ul><li>main.js主要是引入vue框架，根组件及路由设置，并且定义vue实例，下面的 components:{App}就是引入的根组件App.vue</li></ul></li></ul></li></ul><div class=highlight><pre style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#408080;font-style:italic>/*引入vue框架*/</span>
+<span style=color:green;font-weight:700>import</span> Vue from <span style=color:#ba2121>&#39;vue&#39;</span>
+<span style=color:#408080;font-style:italic>/*引入根组件*/</span>
+<span style=color:green;font-weight:700>import</span> App from <span style=color:#ba2121>&#39;./App&#39;</span>
+<span style=color:#408080;font-style:italic>/*引入路由设置*/</span>
+<span style=color:green;font-weight:700>import</span> router from <span style=color:#ba2121>&#39;./router&#39;</span>
+
+<span style=color:#408080;font-style:italic>/*定义实例*/</span> 
+<span style=color:green;font-weight:700>new</span> Vue({
+  el<span style=color:#666>:</span> <span style=color:#ba2121>&#39;#app&#39;</span>,
+  router,
+  template<span style=color:#666>:</span> <span style=color:#ba2121>&#39;&lt;App/&gt;&#39;</span>,
+  components<span style=color:#666>:</span> { App }
+})
+</code></pre></div><ul><li>主要文件详解<ul><li>router——[路由配置]<ul><li>vue-router是Vue.js官方的路由插件，它和vue.js是深度集成的，适合用于构建单页面应用。vue的单页面应用是基于路由和组件的，路由用于设定访问路径，并将路径和组件映射起来。</li><li>router文件夹下，有一个index.js，即为路由配置文件。</li><li>这里定义了路径为'/&lsquo;的路由，该路由对应的页面是Hello组件，所以当我们在浏览器url访问http://localhost:8080/#/时就渲染的Hello组件</li><li>类似的，我们可以设置多个路由，‘/index’,'/list&rsquo;之类的，当然首先得引入该组件，再为该组件设置路由。</li></ul></li></ul></li></ul><div class=highlight><pre style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#408080;font-style:italic>/*引入vue框架*/</span>
+<span style=color:green;font-weight:700>import</span> Vue from <span style=color:#ba2121>&#39;vue&#39;</span>
+<span style=color:#408080;font-style:italic>/*引入路由依赖*/</span>
+<span style=color:green;font-weight:700>import</span> Router from <span style=color:#ba2121>&#39;vue-router&#39;</span>
+<span style=color:#408080;font-style:italic>/*引入页面组件，命名为Hello*/</span> 
+<span style=color:green;font-weight:700>import</span> Hello from <span style=color:#ba2121>&#39;@/components/Hello&#39;</span>
+
+<span style=color:#408080;font-style:italic>/*使用路由依赖*/</span> 
+Vue.use(Router)
+
+<span style=color:#408080;font-style:italic>/*定义路由*/</span> 
+<span style=color:green;font-weight:700>export</span> <span style=color:green;font-weight:700>default</span> <span style=color:green;font-weight:700>new</span> Router({
+  routes<span style=color:#666>:</span> [
+    {
+      path<span style=color:#666>:</span> <span style=color:#ba2121>&#39;/&#39;</span>,
+      name<span style=color:#666>:</span> <span style=color:#ba2121>&#39;Hello&#39;</span>,
+      component<span style=color:#666>:</span> Hello
+    }
+  ]
+})
+</code></pre></div><h6 id=vue-模板文件>vue 模板文件<a href=#vue-模板文件 class=header-anchor arialabel=Anchor> #</a></h6><div class=highlight><pre style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html><span style=color:#408080;font-style:italic>&lt;!--  --&gt;</span>
+&lt;<span style=color:green;font-weight:700>template</span>&gt;
+  &lt;<span style=color:green;font-weight:700>div</span>/&gt;
+&lt;/<span style=color:green;font-weight:700>template</span>&gt;
+
+&lt;<span style=color:green;font-weight:700>script</span>&gt;
+<span style=color:#408080;font-style:italic>// 这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
+</span><span style=color:#408080;font-style:italic>// 例如：import 《组件名称》 from &#39;《组件路径》&#39;
+</span><span style=color:#408080;font-style:italic></span>
+<span style=color:green;font-weight:700>export</span> <span style=color:green;font-weight:700>default</span> {
+  <span style=color:#408080;font-style:italic>// import引入的组件需要注入到对象中才能使用
+</span><span style=color:#408080;font-style:italic></span>  components<span style=color:#666>:</span> {},
+  data() {
+    <span style=color:#408080;font-style:italic>// 这里存放数据
+</span><span style=color:#408080;font-style:italic></span>    <span style=color:green;font-weight:700>return</span> {
+
+    }
+  },
+  <span style=color:#408080;font-style:italic>// 监听属性 类似于data概念
+</span><span style=color:#408080;font-style:italic></span>  computed<span style=color:#666>:</span> {},
+  <span style=color:#408080;font-style:italic>// 监控data中的数据变化
+</span><span style=color:#408080;font-style:italic></span>  watch<span style=color:#666>:</span> {},
+  <span style=color:#408080;font-style:italic>// 生命周期 - 创建完成（可以访问当前this实例）
+</span><span style=color:#408080;font-style:italic></span>  created() {
+
+  },
+  <span style=color:#408080;font-style:italic>// 生命周期 - 挂载完成（可以访问DOM元素）
+</span><span style=color:#408080;font-style:italic></span>  mounted() {
+
+  },
+  beforeCreate() {}, <span style=color:#408080;font-style:italic>// 生命周期 - 创建之前
+</span><span style=color:#408080;font-style:italic></span>  beforeMount() {}, <span style=color:#408080;font-style:italic>// 生命周期 - 挂载之前
+</span><span style=color:#408080;font-style:italic></span>  beforeUpdate() {}, <span style=color:#408080;font-style:italic>// 生命周期 - 更新之前
+</span><span style=color:#408080;font-style:italic></span>  updated() {}, <span style=color:#408080;font-style:italic>// 生命周期 - 更新之后
+</span><span style=color:#408080;font-style:italic></span>  beforeDestroy() {}, <span style=color:#408080;font-style:italic>// 生命周期 - 销毁之前
+</span><span style=color:#408080;font-style:italic></span>  destroyed() {}, <span style=color:#408080;font-style:italic>// 生命周期 - 销毁完成
+</span><span style=color:#408080;font-style:italic></span>  activated() {}, <span style=color:#408080;font-style:italic>// 如果页面有keep-alive缓存功能，这个函数会触发
+</span><span style=color:#408080;font-style:italic></span>  <span style=color:#408080;font-style:italic>// 方法集合
+</span><span style=color:#408080;font-style:italic></span>  methods<span style=color:#666>:</span> {
+
+  }
+}
+
+&lt;/<span style=color:green;font-weight:700>script</span>&gt;
+&lt;<span style=color:green;font-weight:700>style</span> <span style=color:#7d9029>lang</span><span style=color:#666>=</span><span style=color:#ba2121>&#39;less&#39;</span> <span style=color:#7d9029>scoped</span>&gt;
+<span style=color:#666>//</span>@<span style=color:green;font-weight:700>import</span> <span style=color:green;font-weight:700>url</span><span style=color:#666>()</span>; <span style=color:green;font-weight:700>引入公共css类</span>
+
+&lt;/<span style=color:green;font-weight:700>style</span>&gt;
+</code></pre></div><p style=color:#777>最后一次修改于 2023-03-01</p></div><a href=#top><i class="fa fa-chevron-up" style=font-size:30px;color:#000></i></a></main><footer class=footer><script type=text/javascript src=/js/math-code.js></script><script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script><script type=text/javascript src=/js/center-img.js></script><ul class=footer-links><li><a href=/cn/posts/index.xml type=application/rss+xml title="RSS feed">订阅</a></li><li><a href=http://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh target=_blank>版权
 <i class="fa fa-cc" aria-hidden=true title="Attribution-NonCommercial-ShareAlike 4.0 International"></i></a></li></ul><div class=copyright-text>©
 陈昕悦
 2023-∞</div></footer>
