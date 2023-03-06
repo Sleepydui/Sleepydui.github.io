@@ -78,8 +78,8 @@ posts = "/posts/:year/:month/:day/:slug/"
 [params.logo]
   # Change the logo picture as your prefer:
   url = "image/cxy.png" # you can change it
-  width = 70
-  height = 40
+  width = 50
+  height = 50
   alt = "Hugo-ht"
 
 [params.lang]
