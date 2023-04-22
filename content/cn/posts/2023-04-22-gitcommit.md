@@ -1,136 +1,78 @@
 ---
-title: "Markdown 试水"
-date: 2021-01-07T13:42:27-05:00
-author: 你的名字
+title: “工作流|知识输入与输出流兼论终端提交指令"
+date: 2023-04-22T15:18:43+08:00
+author: "Dui"
 slug: first-post-cn
 draft: false
 toc: true
 categories:
-  - test
+  - workflow
 tags:
-  - article
+  - workflow
 ---
-{{<block class="reminder">}}
-如果好奇以下的内容是如何实现的，请参考[本页源代码](https://raw.githubusercontent.com/hongtaoh/hugo-ht-exampleSite/master/content/cn/posts/2021-01-07-intro.md)。
-{{<end>}}
 
-# 第一级标题
-## 第二级标题
-### 第三级标题
-#### 第四级标题
-##### 第五级标题
-###### 第六级标题
+## 知识输入与输出
 
-## 列表
+我的目标是建立一个正向可循环的、高效的知识输入输出体系。
 
-- Water
-- Water
-- Water
-  1. Water
-  2. Water
-  3. Water
-- Water
-  - Water
-  - Water
-  - Water
-    1. Water
-    2. Water
+- 具体来说：
+  - 首先建立一个从外界输入的知识库，这个数据库应该易于存储、访问和查找。
+  - 其次优化知识的加工处理流程，利用零碎时间去消化和理解尽可能多的知识。
+  - 最后进行输出，以得到对知识更深的理解，如果这些输出能帮助到别人，则是这个体系的bonus。
 
-## 表格
+目前，这个体系暂时是长下图这样，我会在这篇博文记录它的迭代和优化。
 
-| Water | *Water* | Water |
-|---------|---------|---------|
-| Water | Water | Water |
-| **Water** | Water[^1] | Water |
-| Water | Water | Water |
+{{<figure src="https://Sleepydui.github.io/image/knowledge.png" caption="知识整理和博客更新流">}}
 
-## 引语
+## 终端指令备忘录
 
-> 知之为知之，不知为不知，是知也[^2]。 — 孔子
+鉴于我还是个建站的初学者，对hugo等建站工具的大部分认识都来自于[hongtao](https://hongtaoh.com/)，在这里记下一些常用指令和自己探索中的notes以便查阅。
 
-## 数学公式
+### MD模版与预览
 
-最简单的如，`$1 + 1 = 3$`
+MD文档模版与HTML对照：
+> 2021-01-07-intro.md
+> https://sleepydui.github.io/cn/2021/01/07/first-post-cn/#%E4%BB%A3%E7%A0%81
 
-你可以加入索引:
+另一个对照，也来自hongtao：
+> https://raw.githubusercontent.com/hongtaoh/hongtaoh.github.io/sources/content/cn/blog/2021-03-02-personal-website.md
+> https://hongtaoh.com/cn/2021/03/02/personal-website-tutorial/
 
-`$$p(x) = \frac{1}{\sigma \sqrt{2 \pi}} exp \left(-\frac{1}{2}\left[\frac{x-\mu}{\sigma}\right]^2\right)\tag{1.1}\label{eq1.1}$$`
+### 终端指令：
 
-多行[^3], 
+⚠️以下操作都需要先cd到文件夹（我的文件夹叫quickstart）
 
-`\begin{align}
-\sqrt{37} & = \sqrt{\frac{73^2-1}{12^2}} \\
- & = \sqrt{\frac{73^2}{12^2}\cdot\frac{73^2-1}{73^2}} \\ 
- & = \sqrt{\frac{73^2}{12^2}}\sqrt{\frac{73^2-1}{73^2}} \\
- & = \frac{73}{12}\sqrt{1 - \frac{1}{73^2}} \\ 
- & \approx \frac{73}{12}\left(1 - \frac{1}{2\cdot73^2}\right)
-\end{align}`
+⚠️以下指令都学习自[hongtao的建站教程](https://hongtaoh.com/cn/2021/03/02/personal-website-tutorial/)
 
-## 代码
+1.更新网站:
 
-句内代码，如 `this`. 
-
-代码块：
-
-```javascript
-// JavaScript 代码：
-water = [1, 2, 3, 4, 5]
-let a = 0;
-for (let i = 0; i < 5; i++){
-	if (water[i] > 3) {
-		a += 1
-	}
-}
-// 请问 a 的值现在是多少呢？
+```bash
+git add .  
+git commit -m “0422update"
+git push origin master
 ```
+2.新添加内容:
 
-## 图片
+```bash
+hugo new cn/posts/2023-04-22-gitcommit.md
+```
+3.在导航栏新加一个分栏:
 
-{{<figure src="https://www.rd.com/wp-content/uploads/2016/09/fall-photos-Iowa_Stewart.jpg" title="标题" caption="说明文字">}}
+```bash
+mkdir content/cn/hobby # hobby 可以换成别的名字
+cp content/cn/about/_index.md content/cn/hobby # hobby 可以换成别的名字
+open content/cn/hobby/_index.md -a TextEdit 
+```
+更改这个 `_index.md` 的 Title 和内容即可。
 
-### 全宽图片
-{{<figure src="https://hongtaoh.com/media/cnblog/sgs/sgs-hostel.jpg" caption="在瑞士因特拉肯一家青年旅舍阳台上，2017年5月，郝鸿涛摄" class="fullwidth">}}
+4.新添加文件:
 
-## 视频
+你可以直接把文件，比如 `myPDF.pdf` 放到 `static` 文件夹，这样的话，这个文件的地址就是 `https://USERNAME.github.io/myPDF.pdf`。当你的文件比较多时，建议你在 `static` 文件夹下新建一个子文件夹，比如 `files`，然后把文件统一放到 `files` 里，这样的话，地址就是 `https://USERNAME.github.io/files/myPDF.pdf`
 
-{{< bilibili 883818925 >}}
+⚠️一些注意点
 
-## 自定义模块
-{{<block class="note" >}}
-一则通知。
-{{< end >}}
+1.我踩的第一个坑是commit以后github响应很慢，不会立刻帮你更新网站，此时不要在github里再提交一遍所有网页，那会花费大量时间重新搭建，只需要耐心等一天。
 
-{{<block class="important" >}}
-这很重要！
-{{< end >}}
+2.网络问题：我的terminal经常停留在commit进程中不响应，经过测试，需要关闭魔法🪜，最好也不要用校园网，直接连接热点再commit会比较快。
 
-{{<block class="tip" >}}
-一条小建议。
-{{< end >}}
-
-{{<block class="caution" >}}
-请注意！
-{{< end >}}
-
-{{<block class="warning" >}}
-警告！
-{{< end >}}
-
-{{<block class="reminder" >}}
-我一般用这个提醒自己一件事。
-{{< end >}}
-
-## 分栏
-{{< columns >}}
-
-{{<figure-a src="https://animalcorner.org/wp-content/uploads/2020/07/Japanese-Dog-Breeds-Akita.jpg" link="/" >}}
-
-{{< column >}}
-
-你的描述
-
-{{< endcolumn >}}
-
-[^1]: Water
-[^2]: 你知道最后一个「知」怎么念吗？
-[^3]: 这个公式来自 [这里](https://math.meta.stackexchange.com/a/5024)，原作者为 [MJD](https://math.meta.stackexchange.com/users/25554/mjd)
+3.想把md分行，之间需要空一行才行，并不像文档中那样回车就是另起一行。
