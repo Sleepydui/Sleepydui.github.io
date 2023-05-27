@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>workflow on Xinyue-page</title><link>https://Sleepydui.github.io/categories/workflow/</link><description>Recent content in workflow on Xinyue-page</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 22 Apr 2023 15:18:43 +0800</lastBuildDate><atom:link href="https://Sleepydui.github.io/categories/workflow/index.xml" rel="self" type="application/rss+xml"/><item><title>“【工作流】知识输入与输出流兼论终端提交指令"</title><link>https://Sleepydui.github.io/cn/2023/04/22/first-post-cn/</link><pubDate>Sat, 22 Apr 2023 15:18:43 +0800</pubDate><guid>https://Sleepydui.github.io/cn/2023/04/22/first-post-cn/</guid><description>知识输入与输出 我的目标是建立一个正向可循环的、高效的知识输入输出体系。
+具体来说： 首先建立一个从外界输入的知识库，这个数据库应该易于存储、访问和查找。 其次优化知识的加工处理流程，利用零碎时间去消化和理解尽可能多的知识。 最后进行输出，以得到对知识更深的理解，如果这些输出能帮助到别人，则是这个体系的bonus。 目前，这个体系暂时是长下图这样，我会在这篇博文记录它的迭代和优化。
+知识整理和博客更新流 终端指令备忘录 鉴于我还是个建站的初学者，对hugo等建站工具的大部分认识都来自于hongtao ，在这里记下一些常用指令和自己探索中的notes以便查阅。
+MD模版与预览 MD文档模版与HTML对照：
+2021-01-07-intro.md https://sleepydui.github.io/cn/2021/01/07/first-post-cn/#%E4%BB%A3%E7%A0%81
+另一个对照，也来自hongtao：
+https://raw.githubusercontent.com/hongtaoh/hongtaoh.github.io/sources/content/cn/blog/2021-03-02-personal-website.md https://hongtaoh.com/cn/2021/03/02/personal-website-tutorial/
+终端指令： ⚠️以下操作都需要先cd到文件夹（我的文件夹叫quickstart）
+⚠️以下指令都学习自hongtao的建站教程 1.更新网站:
+git add . git commit -m “0422update&amp;#34; git push origin master 2.新添加内容:
+hugo new cn/posts/2023-04-22-gitcommit.md 3.在导航栏新加一个分栏:
+mkdir content/cn/hobby # hobby 可以换成别的名字 cp content/cn/about/_index.md content/cn/hobby # hobby 可以换成别的名字 open content/cn/hobby/_index.md -a TextEdit 更改这个 _index.md 的 Title 和内容即可。</description></item></channel></rss>
