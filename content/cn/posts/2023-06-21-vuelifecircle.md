@@ -5,10 +5,6 @@ author: "Dui"
 slug: first-post-cn
 draft: false
 toc: true
-categories:
-- vue
-  tags:
-- vue
 ---
 
 ##  Vue 生命周期
